@@ -1,3 +1,5 @@
+package SepedaDemo;
+
 public class Sepeda {
     private String merek;
     private int kecepatan;

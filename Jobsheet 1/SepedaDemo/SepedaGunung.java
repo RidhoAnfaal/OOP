@@ -1,3 +1,5 @@
+package SepedaDemo;
+
 public class SepedaGunung extends Sepeda {
     private String tipeSuspensi;
 
