@@ -8,8 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
         // Inisialisasi Data
-        daftarUser.add(new Instruktur("instruktur1", "password1"));
-        daftarUser.add(new Instruktur("instruktur2", "password2"));
+        daftarUser.add(new Instruktur("instruktur1", "i1"));
+        daftarUser.add(new Instruktur("instruktur2", "i2"));
         daftarUser.add(new Admin("admin", "admin123"));
         daftarKursus.add(new Kursus("Kursus Java Basic-Advance", 500000));
         daftarKursus.add(new Kursus("Kursus Web Development Basic-Advance", 600000));
@@ -169,13 +169,13 @@ public class Main {
             System.out.print("Pilih metode pembayaran (1. Transfer, 2. Indomaret): ");
             int metode = scanner.nextInt();
             String metodePembayaran = metode == 1 ? "Transfer" : "Indomaret";
-            System.out.print("Masukkan ID Pembayaran: ");
-            String idPembayaran = scanner.next();
-            Pembayaran pembayaran = new Pembayaran(idPembayaran, kursus.getHarga(), metodePembayaran,
-                    new Date().toString());
+            // Generate ID pembayaran otomatis
+            String idPembayaran = "P" + (daftarPembayaran.size() + 1);
+            Pembayaran pembayaran = new Pembayaran(idPembayaran, kursus.getHarga(), metodePembayaran);
             daftarPembayaran.add(pembayaran);
             peserta.beliKursus(kursus);
             System.out.println("Pembayaran berhasil. Anda telah membeli kursus " + kursus.getNamaKursus());
+            System.out.println("ID Pembayaran: " + idPembayaran);
         } else {
             System.out.println("Kursus tidak valid.");
         }
