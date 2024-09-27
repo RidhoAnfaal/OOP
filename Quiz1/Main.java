@@ -1,4 +1,4 @@
-import java.util.*;;
+import java.util.*;
 
 public class Main {
     private static List<User> daftarUser = new ArrayList<>();
@@ -17,8 +17,9 @@ public class Main {
         daftarKursus.add(new Kursus("Kursus Game Development Basic-Advance", 700000));
         daftarKursus.add(new Kursus("Kursus Data Science Basic-Advance", 800000));
 
+        // main menu
         while (true) {
-            System.out.println("\n=== Selamat Datang di EduTech Platform ===");
+            System.out.println("\n=== Selamat Datang ===");
             System.out.println("1. Login");
             System.out.println("2. Daftar Akun Peserta");
             System.out.println("3. Exit");
@@ -33,7 +34,7 @@ public class Main {
                     daftarAkunPeserta();
                     break;
                 case 3:
-                    System.out.println("Terima kasih telah menggunakan EduTech Platform!");
+                    System.out.println("Terima kasih telah menggunakan!");
                     return;
                 default:
                     System.out.println("Pilihan tidak valid.");
@@ -41,6 +42,7 @@ public class Main {
         }
     }
 
+    // method daftar peserta
     private static void daftarAkunPeserta() {
         System.out.print("Masukkan username: ");
         String username = scanner.next();
@@ -58,6 +60,7 @@ public class Main {
         System.out.println("Akun peserta berhasil dibuat!");
     }
 
+    // method login akun
     private static void login() {
         System.out.print("Username: ");
         String username = scanner.next();
@@ -79,6 +82,7 @@ public class Main {
         System.out.println("Login gagal. Username atau password salah.");
     }
 
+    // method menu instruktur
     private static void instrukturMenu(Instruktur instruktur) {
         while (true) {
             instruktur.tampilkanMenu();
@@ -99,6 +103,7 @@ public class Main {
         }
     }
 
+    //
     private static void tambahKonten() {
         System.out.println("\n=== Tambah Konten ke Kursus ===");
         System.out.println("Pilih kursus:");
@@ -170,7 +175,7 @@ public class Main {
             int metode = scanner.nextInt();
             String metodePembayaran = metode == 1 ? "Transfer" : "Indomaret";
             // Generate ID pembayaran otomatis
-            String idPembayaran = "PAY-" + (daftarPembayaran.size() + 1);
+            String idPembayaran = "P" + (daftarPembayaran.size() + 1);
             Pembayaran pembayaran = new Pembayaran(idPembayaran, kursus.getHarga(), metodePembayaran,
                     new Date().toString());
             daftarPembayaran.add(pembayaran);
@@ -231,7 +236,7 @@ public class Main {
     }
 
     private static void tambahKursus() {
-        scanner.nextLine(); // Konsumsi newline
+        scanner.nextLine();
         System.out.print("Masukkan nama kursus: ");
         String namaKursus = scanner.nextLine();
         System.out.print("Masukkan harga kursus: ");
