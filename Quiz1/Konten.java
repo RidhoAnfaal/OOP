@@ -15,7 +15,6 @@ public class Konten {
         return deskripsi;
     }
 
-    @Override
     public String toString() {
         return "Judul: " + judul + ", Deskripsi: " + deskripsi;
     }
