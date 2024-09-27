@@ -170,8 +170,9 @@ public class Main {
             int metode = scanner.nextInt();
             String metodePembayaran = metode == 1 ? "Transfer" : "Indomaret";
             // Generate ID pembayaran otomatis
-            String idPembayaran = "P" + (daftarPembayaran.size() + 1);
-            Pembayaran pembayaran = new Pembayaran(idPembayaran, kursus.getHarga(), metodePembayaran);
+            String idPembayaran = "PAY-" + (daftarPembayaran.size() + 1);
+            Pembayaran pembayaran = new Pembayaran(idPembayaran, kursus.getHarga(), metodePembayaran,
+                    new Date().toString());
             daftarPembayaran.add(pembayaran);
             peserta.beliKursus(kursus);
             System.out.println("Pembayaran berhasil. Anda telah membeli kursus " + kursus.getNamaKursus());
