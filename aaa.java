@@ -158,7 +158,7 @@ class Pembayaran {
     }
 }
 
-public class test {
+public class aaa {
     private static List<User> daftarUser = new ArrayList<>();
     private static List<Kursus> daftarKursus = new ArrayList<>();
     private static List<Pembayaran> daftarPembayaran = new ArrayList<>();

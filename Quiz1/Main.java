@@ -7,7 +7,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Inisialisasi Data
+        // Inisialisasi Data ins, ad, kurs
         daftarUser.add(new Instruktur("instruktur1", "i1"));
         daftarUser.add(new Instruktur("instruktur2", "i2"));
         daftarUser.add(new Admin("admin", "admin123"));
