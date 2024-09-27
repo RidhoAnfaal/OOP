@@ -154,7 +154,7 @@ public class Main {
                     lihatKursusYangDibeli(peserta);
                     break;
                 case 3:
-                    return; // Logout
+                    return; // Log
                 default:
                     System.out.println("Pilihan tidak valid.");
             }
@@ -196,7 +196,7 @@ public class Main {
             for (int i = 0; i < kursusYangDibeli.size(); i++) {
                 System.out.println((i + 1) + ". " + kursusYangDibeli.get(i).getNamaKursus());
             }
-            System.out.print("Pilih kursus (nomor) untuk melihat daftar konten: ");
+            System.out.print("Pilih kursus untuk melihat daftar konten: ");
             int kursusIndex = scanner.nextInt() - 1;
             if (kursusIndex >= 0 && kursusIndex < kursusYangDibeli.size()) {
                 kursusYangDibeli.get(kursusIndex).tampilkanDaftarKonten();
