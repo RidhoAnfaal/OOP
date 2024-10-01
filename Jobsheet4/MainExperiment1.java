@@ -1,6 +1,7 @@
 package Jobsheet4;
 
 public class MainExperiment1 {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
 
         Processor p = new Processor("Intel i5", 3);
