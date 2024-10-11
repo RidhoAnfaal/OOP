@@ -1,8 +1,20 @@
-<h1 align="center">Hi 👋, I'm Ridho Anfa'al</h1>
-<h3 align="center">This repository use for java object oriented programming</h3>
+<h2 align="left">Hi 👋! My name is Ridho Anfa'al and I'm a student, from POLINEMA</h2>
+<h1 align="left">This my Java OOP repository</h1>
 
-<p align="left">
-</p>
+<img align="right" height="150" src="95gcf7.gif"  />
 
-<h3 align="center">Languages and Tools:</h3>
-<p align="center"> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> </p>
+###
+
+<div align="left">
+  <h3>Languages and Tools :</h3>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="30" alt="java logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="30" alt="git logo"  />
+  <img width="12" />
+</div>
+
+###
+
+<br clear="both">
+
+###
