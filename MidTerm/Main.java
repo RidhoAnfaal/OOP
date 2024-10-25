@@ -3,7 +3,7 @@ package MidTerm;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class FarmSimulation {
+public class Main {
     public static void main(String[] args) {
         Player player = new Player("Ridho");
         Land land = new Land("Loamy", 100);
