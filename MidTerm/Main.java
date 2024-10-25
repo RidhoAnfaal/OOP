@@ -3,7 +3,7 @@ package MidTerm;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class HarvestMoonSimulation {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Player player = new Player("Ridho");
