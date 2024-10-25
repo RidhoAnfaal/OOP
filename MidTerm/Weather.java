@@ -3,11 +3,9 @@ package MidTerm;
 import java.util.Random;
 
 public class Weather {
-    private String[] weathers = { "Sunny", "Rainy", "Stormy", "Cloudy", "Hot" };
+    private String[] weatherTypes = { "Sunny", "Rainy", "Cloudy" };
     private String currentWeather;
     private int temperature;
-    private int humidity;
-    private int rainfall;
 
     public Weather() {
         changeWeather();
@@ -15,13 +13,21 @@ public class Weather {
 
     public void changeWeather() {
         Random rand = new Random();
-        currentWeather = weathers[rand.nextInt(weathers.length)];
-        temperature = rand.nextInt(15) + 15; // Random temperature between 15-30
-        humidity = rand.nextInt(51) + 50; // Random humidity between 50%-100%
-        rainfall = currentWeather.equals("Rainy") || currentWeather.equals("Stormy") ? rand.nextInt(100) : 0;
-        System.out.println("The weather is " + currentWeather);
-        System.out.println(
-                "Temperature: " + temperature + "°C, Humidity: " + humidity + "%, Rainfall: " + rainfall + "mm\n");
+        currentWeather = weatherTypes[rand.nextInt(weatherTypes.length)];
+
+        switch (currentWeather) {
+            case "Sunny":
+                temperature = rand.nextInt(6) + 25; // 25 - 30°C
+                break;
+            case "Rainy":
+                temperature = rand.nextInt(6) + 18; // 18 - 23°C
+                break;
+            case "Cloudy":
+                temperature = rand.nextInt(5) + 20; // 20 - 24°C
+                break;
+        }
+        System.out.println("The weather today is " + currentWeather +
+                " with a temperature of " + temperature + "°C.\n");
     }
 
     public String getCurrentWeather() {
@@ -29,14 +35,6 @@ public class Weather {
     }
 
     public boolean isRainy() {
-        return currentWeather.equals("Rainy") || currentWeather.equals("Stormy");
-    }
-
-    public boolean isTooHot() {
-        return currentWeather.equals("Hot");
-    }
-
-    public boolean isBadWeather() {
-        return currentWeather.equals("Stormy") || currentWeather.equals("Hot");
+        return currentWeather.equals("Rainy");
     }
 }
