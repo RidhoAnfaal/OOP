@@ -6,6 +6,7 @@ abstract class Crop {
     int waterNeeds;
     boolean isSick;
     int daysWatered;
+    int daysPlanted; // hari sejak ditanam
 
     public Crop(String name, int harvestTime, int waterNeeds) {
         this.name = name;
@@ -13,13 +14,13 @@ abstract class Crop {
         this.waterNeeds = waterNeeds;
         this.isSick = false;
         this.daysWatered = 0;
+        this.daysPlanted = 0;
     }
 
     public abstract void grow();
 
     public void harvest() {
         System.out.println("Harvesting " + name);
-        System.out.println("");
     }
 
     public void getSick() {
@@ -27,8 +28,8 @@ abstract class Crop {
         System.out.println(name + " has gotten sick!");
     }
 
-    public boolean isReadyToHarvest(int days) {
-        return days >= harvestTime;
+    public boolean isReadyToHarvest() {
+        return daysPlanted >= harvestTime;
     }
 
     public void water() {
@@ -38,5 +39,13 @@ abstract class Crop {
 
     public boolean isHealthy() {
         return !isSick && daysWatered > 0;
+    }
+
+    public void incrementDaysPlanted() {
+        daysPlanted++;
+    }
+
+    public int getDaysUntilHarvest() {
+        return Math.max(0, harvestTime - daysPlanted);
     }
 }

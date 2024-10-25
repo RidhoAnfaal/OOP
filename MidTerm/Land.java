@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Land {
     String soilType;
-    int size; // in meters
+    int size;
     List<Crop> crops;
 
     public Land(String soilType, int size) {
@@ -30,7 +30,7 @@ public class Land {
     }
 
     public void pestControl(Crop crop) {
-        crop.getSick(); // pest control
+        crop.getSick();
         System.out.println("Pest control applied on " + crop.name);
         System.out.println("");
     }
