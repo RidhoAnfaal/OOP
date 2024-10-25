@@ -16,6 +16,7 @@ public class Time {
             changeSeason();
         }
         System.out.println("Day " + day + " of " + season);
+        System.out.println("");
     }
 
     public void changeSeason() {
@@ -37,5 +38,9 @@ public class Time {
 
     public String getSeason() {
         return season;
+    }
+
+    public int getDay() {
+        return day;
     }
 }
