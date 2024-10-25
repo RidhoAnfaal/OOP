@@ -1,78 +1,44 @@
 package MidTerm;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
-    private String name;
-    private int energy;
-    private int gold;
-    private ArrayList<String> inventory;
+    String name;
+    int money;
+    int energy;
+    List<Crop> inventory;
 
     public Player(String name) {
         this.name = name;
+        this.money = 100;
         this.energy = 100;
-        this.gold = 500;
         this.inventory = new ArrayList<>();
     }
 
-    public void showStatus() {
-        System.out.println("Player: " + name);
-        System.out.println("Energy: " + energy);
-        System.out.println("Gold: " + gold);
-        System.out.println("Inventory: ");
-        if (inventory.isEmpty()) {
-            System.out.println("  No crops in inventory.");
-        } else {
-            for (String crop : inventory) {
-                System.out.println("  - " + crop);
-            }
-        }
-        System.out.println();
+    public void harvestCrop(Crop crop) {
+        crop.harvest();
+        inventory.add(crop);
+        System.out.println(name + " has harvested " + crop.name);
     }
 
     public void rest() {
         energy = 100;
-        System.out.println(name + " is resting. Energy restored to full.\n");
+        System.out.println(name + " has rested and recovered energy.");
     }
 
-    public void reduceEnergy(int amount) {
-        if (energy >= amount) {
-            energy -= amount;
+    public void sellCrop(Crop crop) {
+        if (inventory.remove(crop)) {
+            money += 20; // Arbitrary selling price
+            System.out.println(name + " sold " + crop.name + ". Current money: " + money);
         } else {
-            System.out.println("Not enough energy!\n");
+            System.out.println("You don't have " + crop.name + " in your inventory.");
         }
     }
 
-    public void addCropToInventory(String crop) {
-        inventory.add(crop);
-        System.out.println(crop + " added to inventory.\n");
-    }
-
-    public void sellCrops() {
-        if (!inventory.isEmpty()) {
-            int income = inventory.size() * 100;
-            gold += income;
-            inventory.clear();
-            System.out.println("Crops sold for " + income + " gold.\n");
-        } else {
-            System.out.println("No crops to sell.\n");
-        }
-    }
-
-    public int getGold() {
-        return gold;
-    }
-
-    public void reduceGold(int amount) {
-        if (gold >= amount) {
-            gold -= amount;
-            System.out.println("Gold reduced by " + amount + ". Remaining gold: " + gold + "\n");
-        } else {
-            System.out.println("Not enough gold to make this purchase.\n");
-        }
-    }
-
-    public boolean hasEnoughGold(int amount) {
-        return gold >= amount;
+    public void checkStatus() {
+        System.out.println("Player Name: " + name);
+        System.out.println("Energy: " + energy);
+        System.out.println("Money: " + money);
     }
 }

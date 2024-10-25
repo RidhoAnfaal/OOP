@@ -1,53 +1,41 @@
 package MidTerm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Land {
-    private Crop crop;
-    private boolean hasCrop;
+    String soilType;
+    int size; // in meters
+    List<Crop> crops;
 
-    public Land() {
-        hasCrop = false;
+    public Land(String soilType, int size) {
+        this.soilType = soilType;
+        this.size = size;
+        this.crops = new ArrayList<>();
     }
 
-    public void crop(Crop crop) {
-        if (hasCrop) {
-            System.out.println("There's already a Crop here.");
-        } else {
-            this.crop = crop;
-            crop.crop();
-            hasCrop = true;
-        }
+    public void plant(Crop crop) {
+        crops.add(crop);
+        System.out.println("Planted " + crop.name);
+        System.out.println("");
     }
 
-    public void water() {
-        if (hasCrop) {
-            crop.water();
-        } else {
-            System.out.println("No Crop to water.");
-        }
+    public void water(Crop crop) {
+        crop.water();
     }
 
-    public void harvest(Player player) {
-        if (hasCrop && crop.isReadyToHarvest()) {
-            System.out.println("Harvesting " + crop.getName() + "...");
-            player.addCropToInventory(crop.getName());
-            crop.reset();
-            hasCrop = false;
-        } else {
-            System.out.println("Crop is not ready for harvest.");
-        }
+    public void fertilize(Crop crop) {
+        System.out.println("Fertilized " + crop.name);
+        System.out.println("");
     }
 
-    public boolean hasCrop() {
-        return hasCrop;
+    public void pestControl(Crop crop) {
+        crop.getSick(); // pest control
+        System.out.println("Pest control applied on " + crop.name);
+        System.out.println("");
     }
 
-    public Crop getCrop() {
-        return crop;
-    }
-
-    public void nextDay() {
-        if (hasCrop) {
-            crop.nextDay();
-        }
+    public List<Crop> getCrops() {
+        return crops;
     }
 }

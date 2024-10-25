@@ -1,73 +1,42 @@
 package MidTerm;
 
-public class Crop {
-    private String name;
-    private int growthDays;
-    private int waterNeededPerDay;
-    private int daysWatered;
-    private int dailyWaterCount;
-    private boolean isHarvestable;
-    private boolean isPlanted;
+abstract class Crop {
+    String name;
+    int harvestTime;
+    int waterNeeds;
+    boolean isSick;
+    int daysWatered;
 
-    public Crop(String name, int growthDays, int waterNeededPerDay) {
+    public Crop(String name, int harvestTime, int waterNeeds) {
         this.name = name;
-        this.growthDays = growthDays;
-        this.waterNeededPerDay = waterNeededPerDay;
+        this.harvestTime = harvestTime;
+        this.waterNeeds = waterNeeds;
+        this.isSick = false;
         this.daysWatered = 0;
-        this.dailyWaterCount = 0;
-        this.isHarvestable = false;
-        this.isPlanted = false;
+    }
+
+    public abstract void grow();
+
+    public void harvest() {
+        System.out.println("Harvesting " + name);
+        System.out.println("");
+    }
+
+    public void getSick() {
+        isSick = true;
+        System.out.println(name + " has gotten sick!");
+    }
+
+    public boolean isReadyToHarvest(int days) {
+        return days >= harvestTime;
     }
 
     public void water() {
-        if (isPlanted) {
-            dailyWaterCount++;
-            System.out.println(name + " has been watered.");
-            checkGrowthStatus();
-        } else {
-            System.out.println("No plant is planted in this land.");
-        }
+        daysWatered++;
+        System.out.println(name + " has been watered.\n");
     }
 
-    private void checkGrowthStatus() {
-        if (dailyWaterCount >= waterNeededPerDay) {
-            daysWatered++;
-            dailyWaterCount = 0; // Reset for the next day
-            if (daysWatered >= growthDays) {
-                isHarvestable = true;
-                System.out.println(name + " is now ready to harvest!");
-            }
-        }
-    }
-
-    public void crop() {
-        isPlanted = true;
-        daysWatered = 0;
-        dailyWaterCount = 0;
-        isHarvestable = false;
-        System.out.println(name + " has been planted.");
-    }
-
-    public boolean isReadyToHarvest() {
-        return isHarvestable;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public boolean isPlanted() {
-        return isPlanted;
-    }
-
-    public void reset() {
-        isPlanted = false;
-        daysWatered = 0;
-        dailyWaterCount = 0;
-        isHarvestable = false;
-    }
-
-    public void nextDay() {
-        dailyWaterCount = 0;
+    public boolean isHealthy() {
+        return !isSick && daysWatered > 0;
     }
 }

@@ -1,41 +1,19 @@
 package MidTerm;
 
 public class Time {
-    private int day;
-    private String season;
+    int days;
 
     public Time() {
-        this.day = 1;
-        this.season = "Spring";
+        this.days = 0;
     }
 
-    public void nextDay() {
-        day++;
-        if (day > 30) {
-            day = 1;
-            changeSeason();
-        }
-        System.out.println("Day " + day + " of " + season);
+    public void passDay() {
+        days++;
+        System.out.println("A day has passed. Total days: " + days);
+        System.out.println("");
     }
 
-    private void changeSeason() {
-        switch (season) {
-            case "Spring":
-                season = "Summer";
-                break;
-            case "Summer":
-                season = "Fall";
-                break;
-            case "Fall":
-                season = "Winter";
-                break;
-            case "Winter":
-                season = "Spring";
-                break;
-        }
-    }
-
-    public String getSeason() {
-        return season;
+    public int getDays() {
+        return days;
     }
 }

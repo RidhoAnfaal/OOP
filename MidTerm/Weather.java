@@ -3,38 +3,21 @@ package MidTerm;
 import java.util.Random;
 
 public class Weather {
-    private String[] weatherTypes = { "Sunny", "Rainy", "Cloudy" };
-    private String currentWeather;
-    private int temperature;
+    String condition;
 
     public Weather() {
-        changeWeather();
+        this.condition = "Sunny\n";
     }
 
     public void changeWeather() {
+        String[] conditions = { "Sunny", "Rainy", "Cloudy", "Stormy" };
         Random rand = new Random();
-        currentWeather = weatherTypes[rand.nextInt(weatherTypes.length)];
-
-        switch (currentWeather) {
-            case "Sunny":
-                temperature = rand.nextInt(6) + 25; // 25 - 30°C
-                break;
-            case "Rainy":
-                temperature = rand.nextInt(6) + 18; // 18 - 23°C
-                break;
-            case "Cloudy":
-                temperature = rand.nextInt(5) + 20; // 20 - 24°C
-                break;
-        }
-        System.out.println("The weather today is " + currentWeather +
-                " with a temperature of " + temperature + "°C.\n");
+        this.condition = conditions[rand.nextInt(conditions.length)];
+        System.out.println("The weather is now: " + condition);
+        System.out.println("");
     }
 
-    public String getCurrentWeather() {
-        return currentWeather;
-    }
-
-    public boolean isRainy() {
-        return currentWeather.equals("Rainy");
+    public String getCondition() {
+        return condition;
     }
 }
